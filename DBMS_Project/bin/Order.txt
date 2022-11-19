@@ -1,0 +1,13 @@
+ID:1
+Item              Price       Quantity
+Cake Set 1             55              3
+Cake Set 3             80              2
+-------------------------
+The subtotal amount:325
+The delivery fee:100
+-------------------------
+The total amount:425
+Address:123
+Date:123
+Credit Card Number:123
+

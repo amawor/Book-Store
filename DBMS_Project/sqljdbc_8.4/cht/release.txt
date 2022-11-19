@@ -1,0 +1,230 @@
+版本資訊
+Microsoft JDBC Driver 8.4 for SQL Server
+2020 年 8 月
+
+------------
+簡介
+------------
+本檔案包含最新或其他重要資訊，以補充 Microsoft JDBC 
+Driver 8.4 for SQL Server 文件。您應先完整閱讀本檔案，再安裝 
+JDBC 驅動程式。
+
+我們非常重視您的意見，並會盡力在最短的時間內 
+回應您的意見反應。如需使用 JDBC 驅動程式部落格與線上論壇來提供意見反應的相關資訊，
+請參閱 https://aka.ms/mssql-jdbc-feedback 的 Microsoft JDBC Driver 8.4 for SQL Server 頁面
+
+
+------------
+安裝
+------------
+安裝 JDBC 驅動程式的指示位於 install.txt 中。請參閱該檔案，以取得 
+在 Windows、Linux 與 macOS 作業系統上安裝 JDBC 驅動程式的相關資訊。
+
+
+---------------------------
+支援的作業系統
+---------------------------
+支援 Microsoft JDBC Driver 8.4 for SQL Server 的作業系統包含：
+  Windows Server 2012
+  Windows Server 2012 R2
+  Windows Server 2016
+  Windows Server 2019
+  Windows 8.1
+  Windows 10
+  Linux
+  macOS
+
+上述清單為一部分支援作業系統的範例。JDBC 驅動程式的目的是 
+在支援使用 JAVA 虛擬機器 (JVM) 的任何作業系統上運作。
+
+但只有最新的 Linux 與 MacOS 作業系統 (Ubuntu 20.04、Ubuntu 18.04、CentOS 7、SUSE 12、
+ macOS 10.15) 已經過相容性與支援測試。
+
+
+-----------------------
+支援的 JAVA 版本
+-----------------------
+Microsoft JDBC Driver 8.4 for SQL Server 已經過測試，且支援最新的 Java 版本 
+Open JDK 和 Zulu 提供的最新 Java Development Kit(JDK) 組建版本。
+支援下列 Java Runtime Environment (JRE) 系統程式庫系列版本：
+
+  ----------------------------------------------------------------------
+  JRE 系列版本 | 驅動程式 JAR 的最大支援版本
+  ----------------------------------------------------------------------
+  8+                 | mssql-jdbc-8.4.1.jre8.jar
+  11+                | mssql-jdbc-8.4.1.jre11.jar
+  14+                | mssql-jdbc-8.4.1.jre14.jar
+
+
+----------------
+版本內容
+----------------
+Microsoft JDBC Driver 8.4 for SQL Server zip 檔或 tar 檔，會解壓縮下列檔案 
+於指定位置，相對於選取的安裝目錄：
+
+<安裝目錄>\sqljdbc_<版本>\<語言>\install.txt
+<安裝目錄>\sqljdbc_<版本>\<語言>\release.txt
+<安裝目錄>\sqljdbc_<版本>\<語言>\license.txt
+<安裝目錄>\sqljdbc_<版本>\<語言>\thirdpartynotices.txt
+<安裝目錄>\sqljdbc_<版本>\<語言>\mssql-jdbc-8.4.1.jre8.jar
+<安裝目錄>\sqljdbc_<版本>\<語言>\mssql-jdbc-8.4.1.jre11.jar
+<安裝目錄>\sqljdbc_<版本>\<語言>\mssql-jdbc-8.4.1.jre14.jar
+<安裝目錄>\sqljdbc_<版本>\<語言>\auth\x86\mssql-jdbc_auth-8.4.1.x86.dll
+<安裝目錄>\sqljdbc_<版本>\<語言>\auth\x64\mssql-jdbc_auth-8.4.1.x64.dll
+<安裝目錄>\sqljdbc_<版本>\<語言>\samples\<範例檔案...>
+<安裝目錄>\sqljdbc_<版本>\<語言>\xa\xa_install.sql
+<安裝目錄>\sqljdbc_<版本>\<語言>\xa\x86\sqljdbc_xa.dll
+<安裝目錄>\sqljdbc_<版本>\<語言>\xa\x64\sqljdbc_xa.dll
+
+如需各個元件的詳細資訊，請參閱線上文件，
+Microsoft JDBC Driver for SQL Server 文件: https://aka.ms/mssql-jdbc
+
+
+-------------
+文件
+-------------
+此套件中包含這份版本資訊、安裝指示與授權條款。
+其他所有文件也都可於線上找到。
+
+請注意，離線說明檔案已不再提供。
+
+
+---------
+JAR 檔案
+---------
+為支援回溯相容性及可能的升級情況，所以 JDBC Driver 8.4 包含 
+每個安裝套件皆內含三個 JAR 類別庫：
+	mssql-jdbc-8.4.1.jre8.jar
+	mssql-jdbc-8.4.1.jre11.jar
+	mssql-jdbc-8.4.1.jre14.jar
+
+
+----------------------
+功能特定檔案
+----------------------
+Azure Active Directory 和整合式驗證 (於 Windows) 元件包含 
+在 'auth' 目錄中。
+
+JDBC 分散式交易元件包含在 'xa' 目錄中。
+
+
+--------------------
+功能相依性
+--------------------
+Microsoft JDBC Driver 8.4 for SQL Server 中有幾項功能相依於外部程式庫， 
+如下所列：
+
+1.搭配 Azure Key Vault 提供者使用「Always Encrypted」
+   相依的程式庫: azure-keyvault (1.2.4 版)、adal4j (1.6.5 版)、
+   與 client-runtime (1.7.4 版)
+
+2.使用「具有安全記憶體保護區的 Always Encrypted」
+   相依程式庫：com.google.code.gson(2.8.6 版)
+   與 org.bouncycastle (1.65 版)。只有 JDK 8 才需要 org.bouncycastle。
+ 
+3.在 Windows、Linux 與 macOS 作業系統上使用「Azure Active Directory 整合式驗證」
+   相依的程式庫: adal4j (1.6.5 版) 與 client-runtime (1.7.4 版)
+   
+4.使用 'useFmtOnly' 擷取參數中繼資料
+   相依的程式庫：antlr-runtime (4.7.2 版)
+   
+如需在標準 Java 應用程式或 Maven 應用程式中加入這些相依程式庫的詳細資訊， 
+可前往：https://go.microsoft.com/fwlink/?linkid=867575
+
+-------
+SAMPLES
+-------
+示範 JDBC 驅動程式各種功能的應用程式範例包含在 'samples'
+"samples"目錄中。如需各個範例及其執行方法的詳細資料，請參閱線上 
+文件。
+
+
+-----------
+變更清單
+-----------
+從 8.4.0.0 變更為 8.4.1.0：
+- 修正 ' SQLServerConnectionPoolProxy ' 與 ' delayLoadingLobs ' 不相容的問題。
+- 修正 'NullPointerException' 潛在的 `delayLoadingLobs' 問題。
+- 修正使用 Windows 憑證存放區解密資料行加密金鑰的問題。
+
+從 8.2.2.0 到 8.4.0.0 的變更:
+- 新增了使用 SQL 資料探索和分類時的敏感度排名支援。
+- 新增了 'SQLServerDatabaseMetaData.getDatabaseCompatibilityLevel()' API 以傳回資料庫相容性層級。
+- 新增了 Azure SQL DNS 快取的支援。
+- 新增了延遲的持久性選項至 'SQLServerConnection.commit()'。
+- 新增了在使用具有安全記憶體保護區的 Always Encrypted 功能時進行憑證到期驗證。
+- 新增了在連線關閉時，例外狀況中的 SQL 狀態。
+- 新增了連線屬性以指定自訂 SocketFactory。
+- 新增了用戶端憑證驗證的支援。
+- 新增了對 JAVA 14 的支援。
+- 新增了使用受控識別驗證 Azure Key Vault 的支援。
+- 更新了驅動程式，以在交涉低於 1.2 的 TLS 版本時擲回警告。
+- 引進了 'SQLServerBulkCSVFileRecord.setEscapeColumnDelimitersCSV()'，以在使用大量複製從 CSV 檔案載入時逸出分隔符號和雙引號。
+- 引進了針對 Azure 資料倉儲的擴充大量複製支援。
+- 引進了 'delayLoadingLobs' 連線屬性，以在串流 LOB 時提供回溯相容性。
+
+ 錯誤修正：
+- 修正了 'DatabaseMetaData.getColumns()' 會間歇性地以不正確順序傳回資料表資料行描述的問題。
+- 修正了啟用 Always Encrypted 時，空間資料類型轉換錯誤的問題。
+- 修正了 'DatabaseMetaData.getColumns()' 未針對 Azure 資料倉儲傳回 IS_AUTOINCREMENT 與 IS_GENERATEDCOLUMN 正確類型的問題。
+- 修正了 'Geography.STAsBinary()' 與 'Geometry.STAsBinary()' 會傳回 WKB 格式而非 CLR 格式的問題。
+- 修正了允許非 MSSQL ResultSet 大量複製 'DateTimeOffset' 的問題。
+- 修正了 SonarQube 所發現的問題。
+- 修正了啟用 Always Encrypted 時，批次插入失敗的問題。
+- 修正了 MSI 驗證因為到期日格式不符而失敗的問題。
+- 修正了使用具有安全記憶體保護區功能的 Always Encrypted 時，串流未關閉的問題。
+- 修正了擷取 SQL VARIANT 作為其基礎類型的問題。
+- 修正了驅動程式與 JAVA 8 不相容的問題。
+- 修正了插入大型空間資料類型時，'PreparedStatement' 出現的問題。
+- 修正了在連接字串中逸出大括弧的問題。
+- 修正了使用分散式交易時，從 SQL Server Linux 擷取作業系統資訊時的警告。
+
+改善︰
+- 更新了 'SQLServerPreparedStatement.setObject()' 以從 'SQLServerDataTable' 擷取 TVP 名稱。
+- 改善了在連線到已啟用重新導向 Azure 伺服器時的例外狀況訊息。
+- 改善了在剖析連接字串時的效能。
+- 新增了 Always Encrypted 記憶體保護區快取金鑰的資料庫名稱。
+- 移除了未使用的程式碼。
+
+------------
+已知問題
+------------
+下列為 Microsoft JDBC Driver 8.4 for SQL Server 的已知問題:
+
+1) 使用 SQL Azure 時連線中斷
+
+連線到 SQL Azure 時，網路元件 (例如防火牆) 可能會在一段時間沒有活動之後 
+終止閒置連線。若要避免網路元件中斷閒置連線，
+您應該在載入驅動程式的作業系統上 
+進行下列登錄設定 (或非 Windows 的對等設定)：
+           
+登錄設定                                                                   建議值
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime            30000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval         1000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpMaxDataRetransmission  10
+
+2) 搭配 SQL_VARIANT 使用 TVP 時 
+
+2.a) 針對日期值
+
+在使用 TVP 填入資料表 (包含儲存於 in sql_variant 資料行的 datetime/smalldatetime/date 值) 時，
+無法對 ResultSet 呼叫 getDateTime()/getSmallDateTime()/getDate()，而且會擲回下列例外狀況：
+
+	java.lang.String 無法轉換成 java.sql.Timestamp
+
+因應措施： 請改用 getString() 或 getObject()。
+
+2.b) 針對 NULL 值搭配 SQL_VARIANT 使用 TVP
+
+如果您使用 TVP 來填入資料表，並將 NULL 值傳送到 sql_variant 資料行類型，
+會因為目前不支援於 TVP 中插入具有資料行類型 sql_variant 的 NULL 值而發生例外狀況。
+
+
+3) 使用 NTLM 驗證時
+
+目前不支援同時啟用擴充保護與加密連線。
+
+4) 使用 useFmtOnly 時
+
+有一些功能問題與是由 SQL 剖析邏輯中的缺陷所造成。
+如需更多詳細資料和因應措施的建議，請參閱 https://aka.ms/mssql-jdbc-usefmtonly。

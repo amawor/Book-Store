@@ -1,0 +1,6 @@
+Cake_Set_1 55
+Cake_Set_2 60
+Cake_Set_3 80
+Cake_Set_4 90
+Cake_Set_5 100
+Cake_Set_6 30
